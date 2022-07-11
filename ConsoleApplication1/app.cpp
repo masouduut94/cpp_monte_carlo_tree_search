@@ -32,42 +32,44 @@ int main()
 
     Move move = { 2, 4 };
     const float EXP = 0.21;
-    Node root = Node(move, nullptr);
+    Node *root = new Node(move, nullptr);
 
-    double val = root.value(EXP);
+    double val = root->value(EXP);
     cout << val << endl;
-    auto v = root.get_move();
+    auto v = root->get_move();
     auto f = cell_char(v.x);
 
     printf("move = %c %d\n", f, v.y);
 
-    vector<Node> children;
+    vector<Node*> children;
     // Moves from (0, 2) to (20, 2);
     for (int i = 0; i <= 20; i++) {  
         Move move1 = { i,2 };
-        Node item = Node(move1, &root);
-        item.add_win();
+        //Node item = Node(move1, &root);
+        Node *item = new Node(move1, root);
+        item->add_win();
         children.emplace_back(item);
     }
-    root.add_children(children);
+
+    root->add_children(children);
     
-    Move a = {18, 2}; // move (18, 1) is selected to be evaluated.
-    Node* p = root.find_child(a);
-    children.clear();
+    //Move a = {18, 2}; // move (18, 1) is selected to be evaluated.
+    //Node* p = root->find_child(a);
+    //children.clear();
      //Moves from (0, 10) to (20, 10) 
-    for (int i = 0; i <= 10; i++) {
+    /*for (int i = 0; i <= 10; i++) {
         Move move1 = { i*2,10 };
-        Node item = Node(move1, p);
-        root.add_win();
-        item.add_win();
-        item.add_win();
-        item.add_loss();
+        Node* item = new Node(move1, p);
+        root->add_win();
+        item->add_win();
+        item->add_win();
+        item->add_loss();
         children.emplace_back(item);
     }
 
     val = p->value(1);
     printf("\n");
-    printf("value is %f", val);
+    printf("value is %f", val);*/
 
 
 
