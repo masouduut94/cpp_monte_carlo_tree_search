@@ -60,4 +60,31 @@ struct GameMeta {
     };
 
 
+    class UnionFind {
 
+    };
+
+    class GameState {
+        /*
+        Stores information representing the current state of a game of hex, namely
+        the boardand the current turn.Also provides functions for playing game.
+        */
+    private:
+        int size;
+        int turn;
+        int board[10][10];
+        int white_played;
+        int black_played;
+        UnionFind white_groups;
+        UnionFind black_groups;
+
+    public:
+        void play(Move move);
+        void place_white(Move move);
+        void place_black(Move move);
+        int get_turn() { return turn; }
+        int get_moves();
+
+
+
+    };

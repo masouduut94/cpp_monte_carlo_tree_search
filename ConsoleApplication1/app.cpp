@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "interface.h"
+
 //#include <random>
 
 using namespace std;
@@ -53,7 +54,7 @@ int main()
 
     root->add_children(children);
     
-    Move a = {18, 2}; // move (18, 1) is selected to be evaluated.
+    Move a = {5, 2}; // move (18, 1) is selected to be evaluated.
     Node* p = root->find_child(a);
     children.clear();
      //Moves from (0, 10) to (20, 10) 
