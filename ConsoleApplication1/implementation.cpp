@@ -38,21 +38,19 @@ double Node::value(const float EXPLORE_CONST) {
     }
 }
 
-//Node* Node::find_child(Move move) {
-//    /*  Returns the child which constructed for input move.
-//            
-//    */
-//    
-//    // How to return either value, or NULL in return https://stackoverflow.com/a/2639268/6118987
-//    // 
-//    for (auto i = 0; i != children.max_size(); ++i) {
-//        printf("move: (%d , %d) \n", children.at(i).move.x, children.at(i).move.y);
-//        if (children.at(i).move.x == move.x && children.at(i).move.y == move.y) {
-//            return &children.at(i);
-//        }
-//    }
-//    return nullptr;
-
+Node* Node::find_child(Move move) {
+    /*  Returns the child which constructed for input move.
+            
+    */
     
+    // How to return either value, or NULL in return https://stackoverflow.com/a/2639268/6118987
+    // 
+    for (auto i = 0; i != children.max_size(); ++i) {
+        printf("move: (%d , %d) \n", children.at(i)->move.x, children.at(i)->move.y);
+        if (children.at(i)->move.x == move.x && children.at(i)->move.y == move.y) {
+            return children.at(i);
+        }
+    }
+    return nullptr;
+}
 
-//}

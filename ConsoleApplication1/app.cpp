@@ -53,11 +53,11 @@ int main()
 
     root->add_children(children);
     
-    //Move a = {18, 2}; // move (18, 1) is selected to be evaluated.
-    //Node* p = root->find_child(a);
-    //children.clear();
+    Move a = {18, 2}; // move (18, 1) is selected to be evaluated.
+    Node* p = root->find_child(a);
+    children.clear();
      //Moves from (0, 10) to (20, 10) 
-    /*for (int i = 0; i <= 10; i++) {
+    for (int i = 0; i <= 10; i++) {
         Move move1 = { i*2,10 };
         Node* item = new Node(move1, p);
         root->add_win();
@@ -69,7 +69,7 @@ int main()
 
     val = p->value(1);
     printf("\n");
-    printf("value is %f", val);*/
+    printf("value is %f", val);
 
 
 

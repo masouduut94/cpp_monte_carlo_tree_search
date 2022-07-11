@@ -56,7 +56,7 @@ struct GameMeta {
 	    void add_rave_win() { N_RAVE++; Q_RAVE++; }
 	    void add_rave_loss() { N_RAVE++; Q_RAVE--; }
 	    Move get_move() { return move; }
-        //Node* find_child(Move move);
+        Node* find_child(Move move);
     };
 
 
