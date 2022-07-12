@@ -9,10 +9,16 @@ using namespace std;
 
 struct GameMeta {
     const unordered_map<string, int> PLAYERS = {
-            {"none",  0},
-            {"white", 1},
-            {"black", 2}
+        {"none",  0},
+        {"white", 1},
+        {"black", 2}
     };
+
+    const unordered_map<string, int> TURN = {
+        {"white", 1},
+        {"black", 2}
+    };
+
     float INF = INFINITY;
     int GAME_OVER = -1;
     int GAME_ON = 1;
@@ -72,19 +78,28 @@ struct GameMeta {
     private:
         int size;
         int turn;
-        int board[10][10];
+        int** board=0;
         int white_played;
         int black_played;
         UnionFind white_groups;
         UnionFind black_groups;
 
     public:
+        void set_size(int inp_size) { size = inp_size; }
+        int get_size() { return size; }
+
+        void set_turn(int turn);
+        int get_turn() { return turn; }
+        
+        void set_board(int size);
+        int** get_board() { return board; }
+
         void play(Move move);
         void place_white(Move move);
         void place_black(Move move);
         int get_turn() { return turn; }
         int get_moves();
-
+        
 
 
     };

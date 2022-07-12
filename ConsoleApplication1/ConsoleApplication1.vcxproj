@@ -141,6 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app.cpp" />
+    <ClCompile Include="interface.cpp" />
     <ClCompile Include="interface.h" />
     <ClCompile Include="implementation.cpp" />
   </ItemGroup>
