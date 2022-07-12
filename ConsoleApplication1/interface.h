@@ -78,7 +78,7 @@ struct GameMeta {
     private:
         int size;
         int turn;
-        int** board=0;
+        vector<vector<int>> board;
         int white_played;
         int black_played;
         UnionFind white_groups;
@@ -91,13 +91,13 @@ struct GameMeta {
         void set_turn(int turn);
         int get_turn() { return turn; }
         
-        void set_board(int size);
-        int** get_board() { return board; }
+        void set_board(int inp_size);
+        vector<vector<int>> get_board() { return this->board; }
 
         void play(Move move);
         void place_white(Move move);
         void place_black(Move move);
-        int get_turn() { return turn; }
+        int get_turn() { return this->turn; }
         int get_moves();
         
 

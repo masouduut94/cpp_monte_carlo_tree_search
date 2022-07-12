@@ -20,7 +20,7 @@ Node::Node(Move move, Node* parent_inp){
 
 void Node::add_children(vector<Node*> list_of_children) {
     for (Node* item : list_of_children) {
-        children.push_back(item);
+        this->children.push_back(item);
     }
 }
 
@@ -32,8 +32,8 @@ double Node::value(const float EXPLORE_CONST) {
     if (N == 0) return INFINITY;
     else {
         double val = Q / N;
-        printf("parent N: %d", parent->N);
-        double explore = sqrt(log10(static_cast<double>(parent->N) / N));
+        printf("parent N: %d", this->parent->N);
+        double explore = sqrt(log10(static_cast<double>(this->parent->N) / this->N));
         return val + (double)(EXPLORE_CONST * explore);
     }
 }
@@ -54,3 +54,14 @@ Node* Node::find_child(Move move) {
     return nullptr;
 }
 
+
+void GameState::set_board(int inp_size) {
+    GameState::set_size(inp_size);
+    for (int i; i <= this->size; ++i) {
+        vector<int> v1;
+        for (int j; j <= inp_size; ++j) {
+            v1.push_back(0);
+        }
+        this->board.push_back(v1);
+    }
+}
