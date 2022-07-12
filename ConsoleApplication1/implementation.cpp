@@ -65,3 +65,24 @@ void GameState::set_board(int inp_size) {
         this->board.push_back(v1);
     }
 }
+
+void GameState::set_turn(int turn) {
+    // manually changes the turn.
+}
+
+void GameState::play(Move move){
+    // Plays the move based on game turn.
+
+}
+
+void GameState::place_white(Move move) {
+    // Places the white stone on cell and changes the turn to black
+}
+
+void GameState::place_black(Move move) {
+    // Places a black stone on cell and changes the turn to white.
+}
+
+vector<int*> GameState::get_moves(){
+    // Returns list of unoccupied cells.
+}

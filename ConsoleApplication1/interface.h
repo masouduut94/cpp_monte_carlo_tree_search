@@ -98,7 +98,7 @@ struct GameMeta {
         void place_white(Move move);
         void place_black(Move move);
         int get_turn() { return this->turn; }
-        int get_moves();
+        vector<int*> get_moves();
         
 
 
