@@ -1,38 +1,38 @@
 #include <math.h>
+#include<string>
 #include <vector>
-#include <unordered_map>
+#include <map>
 #include <optional>
 
 
 using namespace std;
 
 
-struct GameMeta {
-    const unordered_map<string, int> PLAYERS = {
-        {"none",  0},
-        {"white", 1},
-        {"black", 2}
-    };
-
-    const unordered_map<string, int> TURN = {
-        {"white", 1},
-        {"black", 2}
-    };
-
-    float INF = INFINITY;
-    int GAME_OVER = -1;
-    int GAME_ON = 1;
-    const int EDGE1 = 1;
-    const int EDGE2 = 2;
-    const int NEIGHBOR_PATTERNS[6][2] = {
-            {-1, 0},
-            {0,  -1},
-            {-1, 1},
-            {0,  1},
-            {1,  0},
-            {1,  -1}
-    };
+map<string, int> PLAYERS = {
+    {"none",  0},
+    {"white", 1},
+    {"black", 2}
 };
+
+map<string, int> TURN = {
+    {"white", 1},
+    {"black", 2}
+};
+
+float INF = INFINITY;
+int GAME_OVER = -1;
+int GAME_ON = 1;
+const int EDGE1 = 1;
+const int EDGE2 = 2;
+const int NEIGHBOR_PATTERNS[6][2] = {
+        {-1, 0},
+        {0,  -1},
+        {-1, 1},
+        {0,  1},
+        {1,  0},
+        {1,  -1}
+};
+
 
 
     struct Move
@@ -85,6 +85,7 @@ struct GameMeta {
         UnionFind black_groups;
 
     public:
+        GameState(int size);
         void set_size(int inp_size) { size = inp_size; }
         int get_size() { return size; }
 
@@ -99,6 +100,8 @@ struct GameMeta {
         void place_black(Move move);
         int get_turn() { return this->turn; }
         vector<int*> get_moves();
+        string print_board();
+        vector<Move> neighbors(Move move);
         
 
 

@@ -1,10 +1,9 @@
 
 #include "interface.h"
-#include <string>
 #include <optional>
 
  
-// UCT Node Methods
+// ###################################### UCT Node Methods
 
 
 
@@ -55,8 +54,20 @@ Node* Node::find_child(Move move) {
 }
 
 
+// ####################################### GameState Module...
+
+GameState::GameState(int size) {
+    this->set_size(size);
+    this->set_turn(TURN["white"]);
+    this->set_board(this->size);
+    int white_played = 0;
+    int black_played = 0;
+    UnionFind white_groups;
+    UnionFind black_groups;
+}
+
 void GameState::set_board(int inp_size) {
-    GameState::set_size(inp_size);
+    this->set_size(inp_size);
     for (int i; i <= this->size; ++i) {
         vector<int> v1;
         for (int j; j <= inp_size; ++j) {
@@ -66,23 +77,74 @@ void GameState::set_board(int inp_size) {
     }
 }
 
-void GameState::set_turn(int turn) {
+void GameState::set_turn(int turn_inp) {
     // manually changes the turn.
+    turn = turn_inp;
 }
 
 void GameState::play(Move move){
     // Plays the move based on game turn.
-
+    if (this->turn == TURN["white"]) {
+        this->place_white(move);
+        this->set_turn(TURN["black"]);
+    }
+    else {
+        this->place_black(move);
+        this->set_turn(TURN["white"]);
+    }
 }
 
 void GameState::place_white(Move move) {
     // Places the white stone on cell and changes the turn to black
+    if (this->board[move.x][move.y] == PLAYERS["none"]) {
+        this->board[move.x][move.y] = PLAYERS["white"];
+        this->white_played += 1;
+    }
+    else {
+        printf("The cell is occupied before.");
+    }
+    // TODO: Add White groups join later.
 }
 
 void GameState::place_black(Move move) {
     // Places a black stone on cell and changes the turn to white.
+    if (this->board[move.x][move.y] == PLAYERS["none"]) {
+        this->board[move.x][move.y] = PLAYERS["black"];
+        this->white_played += 1;
+    }
+    else {
+        printf("The cell is occupied before.");
+    }
+    // TODO: Add Black groups join later.
 }
 
 vector<int*> GameState::get_moves(){
     // Returns list of unoccupied cells.
+}
+
+//string GameState::print_board() {
+//    // Prints a string of the board.
+//    // white player -> @ (board left/right)  
+//    // black player -> * (board up/down) 
+//    // No player -> .
+//    
+//    string board_map = "";
+//    for (auto i = 0; i < this->board.size(); i++)
+//    {
+//        for ( auto j = 0; j < this->board.size(); j++ )
+//        {
+//            if ( j == 0 ){board_map += "" }
+//            if ( this->board[i][j] == PLAYERS["white"] ) {
+//                board_map += "@";
+//            }
+//
+//
+//        }
+//    }
+//
+//
+//}
+
+vector<Move> neighbors(Move cell) {
+    // Returns all the unoccupied cells around input cell.
 }
