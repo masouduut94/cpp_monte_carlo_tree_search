@@ -155,6 +155,19 @@ string GameState::print_board() {
 
 }
 
-vector<Move> neighbors(Move cell) {
+vector<Move> GameState::neighbors(Move cell) {
     // Returns all the unoccupied cells around input cell.
+    auto x = cell.x;
+    auto y = cell.y;
+    vector<Move> unoccupied_cells;
+    for (auto item:GameMeta().NEIGHBOR_PATTERNS)
+    {
+        if ((0 <= item[0] + x < this->size) && (0 <= item[1] + y < this->size))  // TODO: Double-check if this comparison is working
+        {
+            Move move = { x + item[0], y + item[1] };
+            unoccupied_cells.push_back(move);
+        }
+    }
+
+    return unoccupied_cells;
 }
