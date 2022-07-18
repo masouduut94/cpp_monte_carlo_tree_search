@@ -58,7 +58,7 @@ Node* Node::find_child(Move move) {
 
 GameState::GameState(int size) {
     this->set_size(size);
-    this->set_turn(TURN["white"]);
+    this->set_turn(GameMeta().TURN["white"]);
     this->set_board(this->size);
     int white_played = 0;
     int black_played = 0;
@@ -84,20 +84,20 @@ void GameState::set_turn(int turn_inp) {
 
 void GameState::play(Move move){
     // Plays the move based on game turn.
-    if (this->turn == TURN["white"]) {
+    if (this->turn == GameMeta().TURN["white"]) {
         this->place_white(move);
-        this->set_turn(TURN["black"]);
+        this->set_turn(GameMeta().TURN["black"]);
     }
     else {
         this->place_black(move);
-        this->set_turn(TURN["white"]);
+        this->set_turn(GameMeta().TURN["white"]);
     }
 }
 
 void GameState::place_white(Move move) {
     // Places the white stone on cell and changes the turn to black
-    if (this->board[move.x][move.y] == PLAYERS["none"]) {
-        this->board[move.x][move.y] = PLAYERS["white"];
+    if (this->board[move.x][move.y] == GameMeta().PLAYERS["none"]) {
+        this->board[move.x][move.y] = GameMeta().PLAYERS["white"];
         this->white_played += 1;
     }
     else {
@@ -108,8 +108,8 @@ void GameState::place_white(Move move) {
 
 void GameState::place_black(Move move) {
     // Places a black stone on cell and changes the turn to white.
-    if (this->board[move.x][move.y] == PLAYERS["none"]) {
-        this->board[move.x][move.y] = PLAYERS["black"];
+    if (this->board[move.x][move.y] == GameMeta().PLAYERS["none"]) {
+        this->board[move.x][move.y] = GameMeta().PLAYERS["black"];
         this->white_played += 1;
     }
     else {
@@ -118,32 +118,42 @@ void GameState::place_black(Move move) {
     // TODO: Add Black groups join later.
 }
 
-vector<int*> GameState::get_moves(){
+vector<Move> GameState::get_moves(){
     // Returns list of unoccupied cells.
+    vector<Move> moves;
+    for (int i = 0; i < this->board.max_size(); i++)
+    {
+        for (int j = 0; j < this->board.max_size(); j++)
+        {
+            if (this->board[i][j] == GameMeta().PLAYERS["none"])
+            {
+                Move move = { i, j };
+                moves.push_back(move);
+            }
+
+        }
+    }
+    return moves;
 }
 
-//string GameState::print_board() {
-//    // Prints a string of the board.
-//    // white player -> @ (board left/right)  
-//    // black player -> * (board up/down) 
-//    // No player -> .
-//    
-//    string board_map = "";
-//    for (auto i = 0; i < this->board.size(); i++)
-//    {
-//        for ( auto j = 0; j < this->board.size(); j++ )
-//        {
-//            if ( j == 0 ){board_map += "" }
-//            if ( this->board[i][j] == PLAYERS["white"] ) {
-//                board_map += "@";
-//            }
-//
-//
-//        }
-//    }
-//
-//
-//}
+string GameState::print_board() {
+    // Prints a string of the board.
+    // white player -> O (board left/right)  
+    // black player -> @ (board up/down) 
+    // No player -> .
+    
+    string board_map = "";
+    string white = "O";
+    string black = "@";
+    string empty = ".";
+    string ret = "\n";
+
+
+
+    // https://github.com/kenjyoung/mopyhex/blob/763cc4f20472be131fa01ce9ba5052cb1ddf191c/gamestate.py#L127
+
+
+}
 
 vector<Move> neighbors(Move cell) {
     // Returns all the unoccupied cells around input cell.

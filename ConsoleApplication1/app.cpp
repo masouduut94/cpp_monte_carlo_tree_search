@@ -59,7 +59,7 @@ int main()
     children.clear();
      //Moves from (0, 10) to (20, 10) 
     for (int i = 0; i <= 10; i++) {
-        Move move1 = { i*2,10 };
+        Move move1 = { i*2, 10 };
         Node* item = new Node(move1, p);
         root->add_win();
         item->add_win();

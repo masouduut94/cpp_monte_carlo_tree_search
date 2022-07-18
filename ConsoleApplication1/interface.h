@@ -7,32 +7,32 @@
 
 using namespace std;
 
+struct GameMeta{
+    map<string, int> PLAYERS = {
+        {"none",  0},
+        {"white", 1},
+        {"black", 2}
+    };
 
-map<string, int> PLAYERS = {
-    {"none",  0},
-    {"white", 1},
-    {"black", 2}
+    map<string, int> TURN = {
+        {"white", 1},
+        {"black", 2}
+    };
+
+    float INF = INFINITY;
+    int GAME_OVER = -1;
+    int GAME_ON = 1;
+    const int EDGE1 = 1;
+    const int EDGE2 = 2;
+    const int NEIGHBOR_PATTERNS[6][2] = {
+            {-1, 0},
+            {0,  -1},
+            {-1, 1},
+            {0,  1},
+            {1,  0},
+            {1,  -1}
+    };
 };
-
-map<string, int> TURN = {
-    {"white", 1},
-    {"black", 2}
-};
-
-float INF = INFINITY;
-int GAME_OVER = -1;
-int GAME_ON = 1;
-const int EDGE1 = 1;
-const int EDGE2 = 2;
-const int NEIGHBOR_PATTERNS[6][2] = {
-        {-1, 0},
-        {0,  -1},
-        {-1, 1},
-        {0,  1},
-        {1,  0},
-        {1,  -1}
-};
-
 
 
     struct Move
@@ -99,7 +99,7 @@ const int NEIGHBOR_PATTERNS[6][2] = {
         void place_white(Move move);
         void place_black(Move move);
         int get_turn() { return this->turn; }
-        vector<int*> get_moves();
+        vector<Move> get_moves();
         string print_board();
         vector<Move> neighbors(Move move);
         
