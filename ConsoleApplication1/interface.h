@@ -66,10 +66,6 @@ struct GameMeta{
     };
 
 
-    class UnionFind {
-
-    };
-
     class GameState {
         /*
         Stores information representing the current state of a game of hex, namely
@@ -81,8 +77,8 @@ struct GameMeta{
         vector<vector<int>> board;
         int white_played;
         int black_played;
-        UnionFind white_groups;
-        UnionFind black_groups;
+        //UnionFind white_groups;
+        //UnionFind black_groups;
 
     public:
         GameState(int size);
@@ -103,6 +99,4 @@ struct GameMeta{
         string print_board();
         vector<Move> neighbors(Move move);
         
-
-
     };

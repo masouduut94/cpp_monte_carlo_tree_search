@@ -23,10 +23,8 @@ void Node::add_children(vector<Node*> list_of_children) {
     }
 }
 
-
 double Node::value(const float EXPLORE_CONST) {
     /* Returns the UCT value of node in MCTS algorithm*/
-
 
     if (N == 0) return INFINITY;
     else {
@@ -62,8 +60,8 @@ GameState::GameState(int size) {
     this->set_board(this->size);
     int white_played = 0;
     int black_played = 0;
-    UnionFind white_groups;
-    UnionFind black_groups;
+    //UnionFind white_groups;
+    //UnionFind black_groups;
 }
 
 void GameState::set_board(int inp_size) {
