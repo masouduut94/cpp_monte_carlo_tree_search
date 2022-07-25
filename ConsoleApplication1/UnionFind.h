@@ -29,11 +29,11 @@ public:
     {
         // if `k` is not the root
         if (parent[k] != k)
-        {
+        {  
             // path compression
             parent[k] = Find(parent[k]);
         }
-
+           
         return parent[k];
     }
 
