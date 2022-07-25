@@ -128,7 +128,7 @@ vector<Move> GameState::get_moves(){
                 Move move = { i, j };
                 moves.push_back(move);
             }
-
+             
         }
     }
     return moves;
