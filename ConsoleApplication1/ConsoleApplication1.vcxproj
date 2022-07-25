@@ -141,15 +141,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="app.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="interface.cpp" />
-    <ClCompile Include="interface.h" />
-    <ClCompile Include="implementation.cpp" />
+    <ClCompile Include="mctsagent.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="UnionFind.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="MctsAgent.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="UnionFind.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
