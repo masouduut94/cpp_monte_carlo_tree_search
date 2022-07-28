@@ -144,6 +144,7 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="mctsagent.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Test.cpp" />
     <ClCompile Include="UnionFind.cpp" />
   </ItemGroup>
   <ItemGroup>

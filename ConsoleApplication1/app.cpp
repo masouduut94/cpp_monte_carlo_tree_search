@@ -6,12 +6,13 @@
 #include "GameState.h"
 #include <unordered_map>
 
+
 //#include <random>
 
 using namespace std;
 
 
-char cell_char(int value) {
+char cell2char(int value) {
     unordered_map<int, char> mapper = {
         {0, 'A'},
         {1, 'B'},
@@ -33,7 +34,7 @@ char cell_char(int value) {
 
 int main()
 {
-
+    
     struct Move move = {2, 5};
 
     const float EXP = 0.21;
@@ -42,7 +43,7 @@ int main()
     double val = root->value(EXP);
     std::cout << val << endl;
     auto v = root->get_move();
-    auto f = cell_char(v.x);
+    auto f = cell2char(v.x);
 
     std::printf("move = %c %d\n", f, v.y);
 
