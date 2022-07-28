@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 #include "utils.h"
 
@@ -22,7 +23,7 @@ public:
     int get_size() { return size; }
 
     void set_turn(int turn);
-    int get_turn() { return turn; }
+    int get_turn() { return this->turn; }
 
     void set_board(int inp_size);
     std::vector<std::vector<int>> get_board() { return this->board; }
@@ -30,7 +31,6 @@ public:
     void play(Move move);
     void place_white(Move move);
     void place_black(Move move);
-    int get_turn() { return this->turn; }
     std::vector<Move> get_moves();
     std::string print_board();
     std::vector<Move> neighbors(Move move);

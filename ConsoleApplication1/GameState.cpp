@@ -14,9 +14,9 @@ GameState::GameState(int size) {
 
 void GameState::set_board(int inp_size) {
     this->set_size(inp_size);
-    for (int i; i <= this->size; ++i) {
+    for (int i=0; i <= this->size; ++i) {
         std::vector<int> v1;
-        for (int j; j <= inp_size; ++j) {
+        for (int j=0; j <= inp_size; ++j) {
             v1.push_back(0);
         }
         this->board.push_back(v1);
@@ -98,7 +98,7 @@ std::string GameState::print_board() {
 
     // https://github.com/kenjyoung/mopyhex/blob/763cc4f20472be131fa01ce9ba5052cb1ddf191c/gamestate.py#L127
 
-
+    return "NOTHING";
 }
 
 std::vector<Move> GameState::neighbors(Move cell) {

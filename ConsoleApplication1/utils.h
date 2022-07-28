@@ -1,3 +1,4 @@
+#pragma once
 #include <math.h>
 #include <map>
 #include<string>
@@ -29,9 +30,9 @@ struct GameMeta {
     };
 };
 
-
 struct Move
 {
     int x;
     int y;
 };
+

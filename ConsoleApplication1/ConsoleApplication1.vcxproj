@@ -142,7 +142,6 @@
   <ItemGroup>
     <ClCompile Include="app.cpp" />
     <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="interface.cpp" />
     <ClCompile Include="mctsagent.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="UnionFind.cpp" />
@@ -152,7 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="Header.h" />
     <ClInclude Include="MctsAgent.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="UnionFind.h" />
