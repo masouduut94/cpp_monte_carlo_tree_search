@@ -35,7 +35,7 @@ char cell2char(int value) {
 int main()
 {
     
-    struct Move move = {2, 5};
+    Move move(1, 3);
 
     const float EXP = 0.21;
     Node *root = new Node(move, nullptr);

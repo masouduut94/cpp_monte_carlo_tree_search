@@ -2,15 +2,16 @@
 #include <math.h>
 #include <map>
 #include<string>
+#include <unordered_map>
 
 struct GameMeta {
-    std::map<std::string, int> PLAYERS = {
+    const std::map<std::string, int> PLAYERS = {
         {"none",  0},
         {"white", 1},
         {"black", 2}
     };
 
-    std::map<std::string, int> TURN = {
+    const std::map<std::string, int> TURN = {
         {"white", 1},
         {"black", 2}
     };
@@ -29,7 +30,7 @@ struct GameMeta {
             {1,  -1}
     };
 
-    const unordered_map<int, char> mapper = {
+    const std::unordered_map<int, char> mapper = {
         {0, 'A'},
         {1, 'B'},
         {2, 'C'},
@@ -60,29 +61,29 @@ struct GameMeta {
 
 };
 
-struct Move
-{
-    int x;
-    int y;
 
-};
-
-
-
-class Move1 {
-private:
+class Move {
+public:
     char x;
     int y;
+    Move(int x_inp, int y_inp);
 
-public:
-    Move1(int x_inp, int y_inp) {
-        setX(x_inp);
-        y = y_inp;
-    }
     void setX(int x_inp) {
-        x = cell2char(x_inp)
+        this->x = GameMeta().mapper[x_inp];
     };
-
 };
+
+Move::Move(int x_inp, int y_inp) {
+    int size = GameMeta().mapper.size();
+    if ((0 <= x_inp <= size) && (0 <= y_inp <= size)) {
+        this->setX(x_inp);
+        this->y = y_inp;
+    }
+    else {
+        printf("The value of  X or Y should be less than %i", size);
+        throw - 1;
+    }
+};
+
 
 
