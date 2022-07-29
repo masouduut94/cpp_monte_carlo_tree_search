@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "utils.h"
+#include "Move.h"
 
 #pragma once
 class GameState {

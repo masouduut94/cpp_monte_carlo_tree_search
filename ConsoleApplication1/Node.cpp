@@ -1,5 +1,5 @@
 #include "Node.h"
-
+#include "Move.h"
 // ###################################### UCT Node Methods
 
 
@@ -38,10 +38,10 @@ Node* Node::find_child(Move move) {
 
     // How to return either value, or NULL in return https://stackoverflow.com/a/2639268/6118987
     // 
-    for (auto i = 0; i != children.max_size(); ++i) {
-        printf("move: (%d , %d) \n", children.at(i)->move.x, children.at(i)->move.y);
-        if (children.at(i)->move.x == move.x && children.at(i)->move.y == move.y) {
-            return children.at(i);
+    for (auto i = 0; i != this->children.max_size(); ++i) {
+        printf("move: (%d , %d) \n", this->children.at(i)->move.getX(), this->children.at(i)->move.getY());
+        if (this->children.at(i)->move.getX() == move.getX() && this->children.at(i)->move.getY() == move.getY()) {
+            return this->children.at(i);
         }
     }
     return nullptr;

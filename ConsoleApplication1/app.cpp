@@ -35,7 +35,7 @@ char cell2char(int value) {
 int main()
 {
     
-    Move move(1, 3);
+    Move move(1, 4);
 
     const float EXP = 0.21;
     Node *root = new Node(move, nullptr);
@@ -43,9 +43,6 @@ int main()
     double val = root->value(EXP);
     std::cout << val << endl;
     auto v = root->get_move();
-    auto f = cell2char(v.x);
-
-    std::printf("move = %c %d\n", f, v.y);
 
     vector<Node*> children;
     // Moves from (0, 2) to (20, 2);

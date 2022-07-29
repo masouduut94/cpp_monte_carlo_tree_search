@@ -4,7 +4,7 @@
 
 GameState::GameState(int size) {
     this->set_size(size);
-    this->set_turn(GameMeta().TURN["white"]);
+    this->set_turn(GameMeta().TURN    ["white"]);
     this->set_board(this->size);
     int white_played = 0;
     int black_played = 0;
@@ -42,8 +42,8 @@ void GameState::play(Move move) {
 
 void GameState::place_white(Move move) {
     // Places the white stone on cell and changes the turn to black
-    if (this->board[move.x][move.y] == GameMeta().PLAYERS["none"]) {
-        this->board[move.x][move.y] = GameMeta().PLAYERS["white"];
+    if (this->board[move.getX()][move.getY()] == GameMeta().PLAYERS["none"]) {
+        this->board[move.getX()][move.getY()] = GameMeta().PLAYERS["white"];
         this->white_played += 1;
     }
     else {
@@ -54,8 +54,8 @@ void GameState::place_white(Move move) {
 
 void GameState::place_black(Move move) {
     // Places a black stone on cell and changes the turn to white.
-    if (this->board[move.x][move.y] == GameMeta().PLAYERS["none"]) {
-        this->board[move.x][move.y] = GameMeta().PLAYERS["black"];
+    if (this->board[move.getX()][move.getY()] == GameMeta().PLAYERS["none"]) {
+        this->board[move.getX()][move.getY()] = GameMeta().PLAYERS["black"];
         this->white_played += 1;
     }
     else {
@@ -103,8 +103,8 @@ std::string GameState::print_board() {
 
 std::vector<Move> GameState::neighbors(Move cell) {
     // Returns all the unoccupied cells around input cell.
-    auto x = cell.x;
-    auto y = cell.y;
+    auto x = cell.getX();
+    auto y = cell.getY();
     std::vector<Move> unoccupied_cells;
     for (auto item : GameMeta().NEIGHBOR_PATTERNS)
     {

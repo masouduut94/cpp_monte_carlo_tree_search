@@ -5,13 +5,13 @@
 #include <unordered_map>
 
 struct GameMeta {
-    const std::map<std::string, int> PLAYERS = {
+    std::map<std::string, int> PLAYERS = {
         {"none",  0},
         {"white", 1},
         {"black", 2}
     };
 
-    const std::map<std::string, int> TURN = {
+    std::map<std::string, int> TURN = {
         {"white", 1},
         {"black", 2}
     };
@@ -30,7 +30,7 @@ struct GameMeta {
             {1,  -1}
     };
 
-    const std::unordered_map<int, char> mapper = {
+    std::unordered_map<int, char> mapper = {
         {0, 'A'},
         {1, 'B'},
         {2, 'C'},
@@ -60,30 +60,3 @@ struct GameMeta {
     };
 
 };
-
-
-class Move {
-public:
-    char x;
-    int y;
-    Move(int x_inp, int y_inp);
-
-    void setX(int x_inp) {
-        this->x = GameMeta().mapper[x_inp];
-    };
-};
-
-Move::Move(int x_inp, int y_inp) {
-    int size = GameMeta().mapper.size();
-    if ((0 <= x_inp <= size) && (0 <= y_inp <= size)) {
-        this->setX(x_inp);
-        this->y = y_inp;
-    }
-    else {
-        printf("The value of  X or Y should be less than %i", size);
-        throw - 1;
-    }
-};
-
-
-
