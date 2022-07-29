@@ -1,10 +1,9 @@
 #include "Node.h"
-#include "Move.h"
 // ###################################### UCT Node Methods
 
 
-Node::Node(Move move, Node* parent_inp) {
-    this->move = move;
+Node::Node(Move inp_move, Node* parent_inp) {
+    this->move = inp_move;
     this->parent = parent_inp;
     this->Q = 0;
     this->N = 0;

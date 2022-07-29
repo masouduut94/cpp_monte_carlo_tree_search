@@ -36,43 +36,43 @@ int main()
 {
     
     Move move(1, 4);
+    std::cout << move.getX();
+    //const float EXP = 0.21;
+    //Node *root = new Node(move, nullptr);
 
-    const float EXP = 0.21;
-    Node *root = new Node(move, nullptr);
+    //double val = root->value(EXP);
+    //std::cout << val << endl;
+    //auto v = root->get_move();
 
-    double val = root->value(EXP);
-    std::cout << val << endl;
-    auto v = root->get_move();
+    //vector<Node*> children;
+    //// Moves from (0, 2) to (20, 2);
+    //for (int i = 0; i <= 20; i++) {  
+    //    struct Move move1 = { i,2 };
+    //    //Node item = Node(move1, &root);
+    //    Node *item = new Node(move1, root);
+    //    item->add_win();
+    //    children.emplace_back(item);
+    //}
 
-    vector<Node*> children;
-    // Moves from (0, 2) to (20, 2);
-    for (int i = 0; i <= 20; i++) {  
-        struct Move move1 = { i,2 };
-        //Node item = Node(move1, &root);
-        Node *item = new Node(move1, root);
-        item->add_win();
-        children.emplace_back(item);
-    }
+    //root->add_children(children);
+    //
+    //struct Move a = {5, 2}; // move (18, 1) is selected to be evaluated.
+    //Node* p = root->find_child(a);
+    //children.clear();
+    // //Moves from (0, 10) to (20, 10) 
+    //for (int i = 0; i <= 10; i++) {
+    //    struct Move move1 = { i*2, 10 };
+    //    Node* item = new Node(move1, p);
+    //    root->add_win();
+    //    item->add_win();
+    //    item->add_win();
+    //    item->add_loss();
+    //    children.emplace_back(item);
+    //}
 
-    root->add_children(children);
-    
-    struct Move a = {5, 2}; // move (18, 1) is selected to be evaluated.
-    Node* p = root->find_child(a);
-    children.clear();
-     //Moves from (0, 10) to (20, 10) 
-    for (int i = 0; i <= 10; i++) {
-        struct Move move1 = { i*2, 10 };
-        Node* item = new Node(move1, p);
-        root->add_win();
-        item->add_win();
-        item->add_win();
-        item->add_loss();
-        children.emplace_back(item);
-    }
-
-    val = p->value(1);
-    std::printf("\n");
-    std::printf("value is %f", val);
+    //val = p->value(1);
+    //std::printf("\n");
+    //std::printf("value is %f", val);
 
 
 
